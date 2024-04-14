@@ -6,21 +6,27 @@ export default function Works() {
   const [currentSlider, setCurrentSlider] = useState(0);
 
   const handleClick = (way) => {
-    way === "left"
-      ? setCurrentSlider(currentSlider > 0 ? currentSlider - 1 : 2)
-      : setCurrentSlider(
-          currentSlider < workData.length ? currentSlider + 1 : 0
-        );
+    console.log(way);
+    const lastSlideIndex = workData.length - 1;
+    let sliderValue;
+    // When clicking on left arrow
+    if (way === "left") {
+      sliderValue = currentSlider > 0 ? currentSlider - 1 : lastSlideIndex;
+    } else {
+      //When clicking the right arrow
+      sliderValue = currentSlider < lastSlideIndex ? currentSlider + 1 : 0;
+    }
+    setCurrentSlider(sliderValue);
   };
 
   return (
     <div className="works" id="works">
       <div
         className="slider"
-        style={{ transform: `translateX(-${currentSlider * 100}vh)` }}
+        style={{ transform: `translateX(-${currentSlider * 100}vw)` }}
       >
         {workData.map((data) => (
-          <div className="container">
+          <div key={data.id} className="container">
             <div className="item">
               <div className="left">
                 <div className="leftContainer">

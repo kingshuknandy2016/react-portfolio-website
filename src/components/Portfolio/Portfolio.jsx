@@ -48,6 +48,7 @@ export default function Portfolio() {
               active={selected === each.id}
               setSelected={setSelected}
               id={each.id}
+              key={each.id}
             ></PortfolioList>
           );
         })}
