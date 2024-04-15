@@ -18,6 +18,7 @@
     .leftContainer {
       display: flex;
       align-items: center;
+
       .logo {
         font-size: 40px;
         font-weight: 700;
@@ -29,6 +30,10 @@
         display: flex;
         align-items: center;
         margin-left: 30px;
+
+        @include mobile {
+          display: none;
+        }
 
         .icon {
           font-size: 18px;
