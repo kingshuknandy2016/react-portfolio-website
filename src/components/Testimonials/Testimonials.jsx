@@ -8,7 +8,10 @@ export default function Testimonials() {
       <h1>Testimonials</h1>
       <div className="container">
         {testimonialsData.map((each) => (
-          <div className={"card " + (each.featured ? "featured" : "")}>
+          <div
+            key={each.id}
+            className={"card " + (each.featured ? "featured" : "")}
+          >
             <div className="top">
               <img src="assets/right-arrow.png" className="left" alt="" />
               <img className="user" src={each.img} alt="" />
